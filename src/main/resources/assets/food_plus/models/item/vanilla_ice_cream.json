@@ -1,6 +1,12 @@
 {
- "parent": "item/generated",
- "textures": {
- "layer0": "food_plus:item/vanilla_ice_cream"
-    }
+	"parent": "item/generated",
+	"loader": "forge:separate-perspective",
+	"base": {
+		"parent": "food_plus:item/vanilla_ice_cream"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "minecraft:item/snowball"
+		}
+	}
 }
