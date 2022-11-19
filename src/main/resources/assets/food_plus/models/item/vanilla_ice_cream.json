@@ -1,6 +1,12 @@
 {
- "parent": "item/generated",
- "textures": {
- "layer0": "food_plus:item/vanilla_ice_cream"
-    }
-}
+	"parent": "forge:item/default",
+	"loader": "forge:separate-perspective",
+	"base": {
+	  "parent": "food_plus:item/vanilla_ice_cream_hand"
+	},
+	"perspectives": {
+	  "gui": {
+		"parent": "food_plus:item/vanilla_ice_cream_gui"
+	  }
+	}
+  }
