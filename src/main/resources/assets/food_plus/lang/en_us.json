@@ -1,4 +1,5 @@
 {
   "item.food_plus.donut": "Donut",
-  "item.food_plus.vanilla_ice_cream": "Vanilla Ice Cream"
+  "item.food_plus.vanilla_ice_cream": "Vanilla Ice Cream",
+  "block.food_plus.empty_ice_cream_tub": "Empty Ice Cream Tub"
 }
