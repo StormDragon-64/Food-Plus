@@ -11,9 +11,12 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.stormdragon_64.food_plus.FoodPlus;
+import net.stormdragon_64.food_plus.block.custom.EmptyIceCreamTub;
 import net.stormdragon_64.food_plus.item.ModItems;
 
 import java.util.function.Supplier;
+
+import static net.minecraft.world.level.block.Blocks.IRON_BLOCK;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
@@ -21,7 +24,7 @@ public class ModBlocks {
 
     //actual blocks
     public static final RegistryObject<Block> EMPTY_ICE_CREAM_TUB = registerBlock("empty_ice_cream_tub",
-            () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(3f)), CreativeModeTab.TAB_DECORATIONS);
+            () -> new EmptyIceCreamTub(BlockBehaviour.Properties.copy(IRON_BLOCK).requiresCorrectToolForDrops()), CreativeModeTab.TAB_DECORATIONS);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

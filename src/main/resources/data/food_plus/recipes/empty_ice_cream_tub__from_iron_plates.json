@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "# #",
+      "# #",
+      "###"
+    ],
+    "key": {
+      "#": {
+        "item": "quark:iron_plate"
+      }
+    },
+    "result": {
+      "item": "food_plus:empty_ice_cream_tub",
+      "count": 3
+    }
+  }
