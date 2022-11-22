@@ -1,6 +1,17 @@
 {
- "parent": "item/generated",
- "textures": {
- "layer0": "food_plus:item/waffle_sheet"
-    }
+	"credit": "Made by StormDragon in Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "food_plus:item/waffle_sheet"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, 1, 1],
+			"scale": [0.50, 0.50, 0.50]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, 1, 1],
+			"scale": [0.50, 0.50, 0.50]
+		}
+	}
 }
