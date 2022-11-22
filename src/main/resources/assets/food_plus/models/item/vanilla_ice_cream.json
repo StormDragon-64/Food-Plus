@@ -1,6 +1,9 @@
 {
 	"parent": "forge:item/default",
 	"loader": "forge:separate-perspective",
+	"textures": {
+		"particle": "food_plus:item/vanilla_ice_cream"
+	},
 	"base": {
 	  "parent": "food_plus:item/vanilla_ice_cream_hand"
 	},

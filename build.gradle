@@ -170,6 +170,8 @@ repositories {
         implementation(fg.deobf("curse.maven:Quark-243121:3840125"))
         implementation(fg.deobf("curse.maven:AutoRegLib-250363:3642382"))
         implementation(fg.deobf("curse.maven:JEI-238222:3940240"))
+        implementation(fg.deobf("curse.maven:AppleSkin-248787:3927564"))
+
 
         // Examples using mod jars from ./libs
         // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
