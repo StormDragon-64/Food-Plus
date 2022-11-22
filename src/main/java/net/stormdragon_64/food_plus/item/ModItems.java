@@ -29,6 +29,9 @@ public class ModItems {
     public static final RegistryObject<Item> EMPTY_CONE = ITEMS.register("empty_cone",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.EMPTY_CONE)));
 
+    public static final RegistryObject<Item> WAFFLE_SHEET = ITEMS.register("waffle_sheet",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_MISC)));
+
     public static final RegistryObject<Item> VANILLA_ICE_CREAM = ITEMS.register("vanilla_ice_cream",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.VANILLA_ICE_CREAM)){
                 @Override
