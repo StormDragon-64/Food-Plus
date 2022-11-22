@@ -1,9 +1,0 @@
-{
-    "variants": {
-       "facing=north": { "model": "food_plus:block/empty_ice_cream_tub" },
-       "facing=east": { "model": "food_plus:block/empty_ice_cream_tub", "y": 90 },
-       "facing=south": { "model": "food_plus:block/empty_ice_cream_tub", "y": 180 },
-       "facing=west": { "model": "food_plus:block/empty_ice_cream_tub", "y": 270 }
-
-    }
-}

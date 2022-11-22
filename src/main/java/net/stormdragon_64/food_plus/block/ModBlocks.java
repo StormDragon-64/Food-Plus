@@ -12,7 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.stormdragon_64.food_plus.FoodPlus;
-import net.stormdragon_64.food_plus.block.custom.EmptyIceCreamTub;
+import net.stormdragon_64.food_plus.block.custom.IceCreamTub;
 import net.stormdragon_64.food_plus.item.ModItems;
 
 import java.util.function.Supplier;
@@ -24,12 +24,8 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, FoodPlus.MOD_ID);
 
     //actual blocks
-    public static final RegistryObject<Block> EMPTY_ICE_CREAM_TUB = registerBlock("empty_ice_cream_tub",
-            () -> new EmptyIceCreamTub(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F)
-                    .sound(SoundType.METAL).requiresCorrectToolForDrops()), CreativeModeTab.TAB_DECORATIONS);
-
-    public static final RegistryObject<Block> VANILLA_ICE_CREAM_TUB = registerBlock("vanilla_ice_cream_tub",
-            () -> new EmptyIceCreamTub(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F)
+    public static final RegistryObject<Block> ICE_CREAM_TUB = registerBlock("ice_cream_tub",
+            () -> new IceCreamTub(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F)
                     .sound(SoundType.METAL).requiresCorrectToolForDrops()), CreativeModeTab.TAB_DECORATIONS);
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {

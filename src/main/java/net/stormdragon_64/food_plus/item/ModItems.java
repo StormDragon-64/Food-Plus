@@ -39,6 +39,9 @@ public class ModItems {
                         pTooltipComponents.add(new TranslatableComponent("tooltip.food_plus.vanilla_ice_cream"));
                     }
             });
+    public static final RegistryObject<Item> CHOCOLATE_ICE_CREAM = ITEMS.register("chocolate_ice_cream",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.VANILLA_ICE_CREAM)));
+
 public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);
 }
