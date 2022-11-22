@@ -1,0 +1,24 @@
+{
+    "variants": {
+       "facing=north, fill_level=1": { "model": "food_plus:block/vanilla/fill_level_1" },
+       "facing=east, fill_level=1": { "model": "food_plus:block/vanilla/fill_level_1", "y": 90 },
+       "facing=south, fill_level=1": { "model": "food_plus:block/vanilla/fill_level_1", "y": 180 },
+       "facing=west, fill_level=1": { "model": "food_plus:block/vanilla/fill_level_1", "y": 270 },
+
+       "facing=north, fill_level=2": { "model": "food_plus:block/vanilla/fill_level_2" },
+       "facing=east, fill_level=2": { "model": "food_plus:block/vanilla/fill_level_2", "y": 90 },
+       "facing=south, fill_level=2": { "model": "food_plus:block/vanilla/fill_level_2", "y": 180 },
+       "facing=west, fill_level=2": { "model": "food_plus:block/vanilla/fill_level_2", "y": 270 },
+
+       "facing=north, fill_level=3": { "model": "food_plus:block/vanilla/fill_level_3" },
+       "facing=east, fill_level=3": { "model": "food_plus:block/vanilla/fill_level_3", "y": 90 },
+       "facing=south, fill_level=3": { "model": "food_plus:block/vanilla/fill_level_3", "y": 180 },
+       "facing=west, fill_level=3": { "model": "food_plus:block/vanilla/fill_level_3", "y": 270 },
+
+       "facing=north, fill_level=4": { "model": "food_plus:block/vanilla/fill_level_4" },
+       "facing=east, fill_level=4": { "model": "food_plus:block/vanilla/fill_level_4", "y": 90 },
+       "facing=south, fill_level=4": { "model": "food_plus:block/vanilla/fill_level_4", "y": 180 },
+       "facing=west, fill_level=4": { "model": "food_plus:block/vanilla/fill_level_4", "y": 270 }
+
+    }
+}

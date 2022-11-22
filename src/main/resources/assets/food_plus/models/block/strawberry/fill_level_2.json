@@ -2,6 +2,7 @@
 	"credit": "Made by StormDragon in Blockbench",
 	"textures": {
 		"0": "food_plus:block/iron_plate_edited",
+		"1": "food_plus:block/frozen_strawberry",
 		"particle": "food_plus:block/iron_plate_edited"
 	},
 	"elements": [
@@ -113,6 +114,18 @@
 				"up": {"uv": [6, 15, 7, 16], "texture": "#0"},
 				"down": {"uv": [6, 15, 7, 16], "texture": "#0"}
 			}
+		},
+		{
+			"from": [4.5, 5, 3],
+			"to": [11.5, 5, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 7, 0], "texture": "#missing"},
+				"east": {"uv": [0, 0, 10, 0], "texture": "#missing"},
+				"south": {"uv": [0, 0, 7, 0], "texture": "#missing"},
+				"west": {"uv": [0, 0, 10, 0], "texture": "#missing"},
+				"up": {"uv": [9, 6, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 7, 10], "texture": "#missing"}
+			}
 		}
 	],
 	"display": {
@@ -158,6 +171,12 @@
 			"origin": [8, 8, 8],
 			"color": 0,
 			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+		},
+		{
+			"name": "ice_cream",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [9]
 		}
 	]
 }

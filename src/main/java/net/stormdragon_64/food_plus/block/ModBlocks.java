@@ -4,6 +4,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.GlassBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -25,6 +26,10 @@ public class ModBlocks {
 
     //actual blocks
     public static final RegistryObject<Block> EMPTY_ICE_CREAM_TUB = registerBlock("empty_ice_cream_tub",
+            () -> new EmptyIceCreamTub(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F)
+                    .sound(SoundType.METAL).requiresCorrectToolForDrops()), CreativeModeTab.TAB_DECORATIONS);
+
+    public static final RegistryObject<Block> VANILLA_ICE_CREAM_TUB = registerBlock("vanilla_ice_cream_tub",
             () -> new EmptyIceCreamTub(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F)
                     .sound(SoundType.METAL).requiresCorrectToolForDrops()), CreativeModeTab.TAB_DECORATIONS);
 
