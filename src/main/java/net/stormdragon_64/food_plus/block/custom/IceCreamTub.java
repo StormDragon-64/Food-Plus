@@ -3,12 +3,8 @@ package net.stormdragon_64.food_plus.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionResultHolder;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -17,14 +13,10 @@ import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.registries.RegistryObject;
 import net.stormdragon_64.food_plus.item.ModItems;
 import net.stormdragon_64.food_plus.util.ModTags;
 
@@ -37,6 +29,8 @@ public class IceCreamTub extends Block {
 
     public IceCreamTub(Properties properties) {
         super(properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(IS_CHOCOLATE, false)
+                .setValue(IS_VANILLA, false));
     }
 
     private static final VoxelShape SHAPE_NS =  Block.box(3.5, 0, 2, 12.5, 12, 14);
@@ -81,6 +75,8 @@ public class IceCreamTub extends Block {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, FILL, IS_CHOCOLATE, IS_VANILLA);
     }
+
+
     // FUNCTIONALITY
         // allows the player to add ice cream to a tub and give them back an empty cone.
 
@@ -88,27 +84,27 @@ public class IceCreamTub extends Block {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
                                  BlockHitResult pResult) {
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
+            //so we can't switch ice creams and magically convert all of the ice cream from one type to another.
             boolean currently_is_vanilla = pState.getValue(IS_VANILLA);
             boolean currently_is_chocolate = pState.getValue(IS_CHOCOLATE);
-            if(currently_is_chocolate && currently_is_vanilla) {
-                pLevel.setBlock(pPos, pState.setValue(IS_VANILLA, false), 3);
-                pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, false), 3);
-            }
 
             if (pPlayer.getItemInHand(pHand).is(ModTags.Items.VANILLA_ICE_CREAMS) && !currently_is_chocolate) {
                 ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                 int current_fill_level = pState.getValue(FILL);
-                if (current_fill_level < 4)
-                    pPlayer.getItemInHand(pHand).shrink(1);
                 pLevel.setBlock(pPos, pState.setValue(IS_VANILLA, true), 3);
+
+                if (current_fill_level < 4) {
+                    pPlayer.getItemInHand(pHand).shrink(1);
                     pLevel.setBlock(pPos, pState.setValue(FILL, current_fill_level + 1), 3);
                     pPlayer.addItem(coneIStack);
+                }
             } else if ((pPlayer.getItemInHand(pHand).is(ModTags.Items.CHOCOLATE_ICE_CREAMS)) && !currently_is_vanilla) {
                 ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                 int current_fill_level = pState.getValue(FILL);
+                pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, true), 3);
+
                 if (current_fill_level < 4) {
                     pPlayer.getItemInHand(pHand).shrink(1);
-                    pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, true), 3);
                     pLevel.setBlock(pPos, pState.setValue(FILL, current_fill_level + 1), 3);
                     pPlayer.addItem(coneIStack);
                 }
