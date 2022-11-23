@@ -86,23 +86,25 @@ public class IceCreamTub extends Block {
                                  BlockHitResult pResult) {
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
             //so we can't switch ice creams and magically convert all of the ice cream from one type to another.
+            boolean currently_is_vanilla = pState.getValue(IS_VANILLA);
+            boolean currently_is_chocolate = pState.getValue(IS_CHOCOLATE);
 
-            if (pPlayer.getItemInHand(pHand).is(ModTags.Items.VANILLA_ICE_CREAMS) && pState.getValue(IS_CHOCOLATE) == false) {
+            if (pPlayer.getItemInHand(pHand).is(ModTags.Items.VANILLA_ICE_CREAMS) && currently_is_chocolate == false) {
+                ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
+                pLevel.setBlock(pPos, pState.setValue(IS_VANILLA, true), 3);
 
                 if (pState.getValue(FILL) < maxfilllevel) {
                     pPlayer.getItemInHand(pHand).shrink(1);
-                    pState.setValue(IS_VANILLA, true);
                     pLevel.setBlock(pPos, pState.setValue(FILL, pState.getValue(FILL) + 1), 3);
-                    ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                     pPlayer.addItem(coneIStack);
                 }
-            } else if (((pPlayer.getItemInHand(pHand).is(ModTags.Items.CHOCOLATE_ICE_CREAMS)) && pState.getValue(IS_VANILLA)) == false) {
+            } else if ((pPlayer.getItemInHand(pHand).is(ModTags.Items.CHOCOLATE_ICE_CREAMS)) && currently_is_vanilla == false) {
+                ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
+                pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, true), 3);
 
                 if (pState.getValue(FILL) < maxfilllevel) {
                     pPlayer.getItemInHand(pHand).shrink(1);
-                    pState.setValue(IS_CHOCOLATE, true);
                     pLevel.setBlock(pPos, pState.setValue(FILL, pState.getValue(FILL) + 1), 3);
-                    ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                     pPlayer.addItem(coneIStack);
                 }
 
