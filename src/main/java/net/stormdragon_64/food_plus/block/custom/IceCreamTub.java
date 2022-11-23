@@ -22,9 +22,10 @@ import net.stormdragon_64.food_plus.util.ModTags;
 
 
 public class IceCreamTub extends Block {
+    static int maxfilllevel = 4;
     public static final BooleanProperty IS_VANILLA = BooleanProperty.create("is_vanilla");
     public static final BooleanProperty IS_CHOCOLATE = BooleanProperty.create("is_chocolate");
-    public static final IntegerProperty FILL = IntegerProperty.create("fill", 0, 4);
+    public static final IntegerProperty FILL = IntegerProperty.create("fill", 0, maxfilllevel);
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     public IceCreamTub(Properties properties) {
@@ -85,27 +86,23 @@ public class IceCreamTub extends Block {
                                  BlockHitResult pResult) {
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
             //so we can't switch ice creams and magically convert all of the ice cream from one type to another.
-            boolean currently_is_vanilla = pState.getValue(IS_VANILLA);
-            boolean currently_is_chocolate = pState.getValue(IS_CHOCOLATE);
 
-            if (pPlayer.getItemInHand(pHand).is(ModTags.Items.VANILLA_ICE_CREAMS) && !currently_is_chocolate) {
-                ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
-                int current_fill_level = pState.getValue(FILL);
-                pLevel.setBlock(pPos, pState.setValue(IS_VANILLA, true), 3);
+            if (pPlayer.getItemInHand(pHand).is(ModTags.Items.VANILLA_ICE_CREAMS) && pState.getValue(IS_CHOCOLATE) == false) {
 
-                if (current_fill_level < 4) {
+                if (pState.getValue(FILL) < maxfilllevel) {
                     pPlayer.getItemInHand(pHand).shrink(1);
-                    pLevel.setBlock(pPos, pState.setValue(FILL, current_fill_level + 1), 3);
+                    pState.setValue(IS_VANILLA, true);
+                    pLevel.setBlock(pPos, pState.setValue(FILL, pState.getValue(FILL) + 1), 3);
+                    ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                     pPlayer.addItem(coneIStack);
                 }
-            } else if ((pPlayer.getItemInHand(pHand).is(ModTags.Items.CHOCOLATE_ICE_CREAMS)) && !currently_is_vanilla) {
-                ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
-                int current_fill_level = pState.getValue(FILL);
-                pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, true), 3);
+            } else if (((pPlayer.getItemInHand(pHand).is(ModTags.Items.CHOCOLATE_ICE_CREAMS)) && pState.getValue(IS_VANILLA)) == false) {
 
-                if (current_fill_level < 4) {
+                if (pState.getValue(FILL) < maxfilllevel) {
                     pPlayer.getItemInHand(pHand).shrink(1);
-                    pLevel.setBlock(pPos, pState.setValue(FILL, current_fill_level + 1), 3);
+                    pState.setValue(IS_CHOCOLATE, true);
+                    pLevel.setBlock(pPos, pState.setValue(FILL, pState.getValue(FILL) + 1), 3);
+                    ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                     pPlayer.addItem(coneIStack);
                 }
 
