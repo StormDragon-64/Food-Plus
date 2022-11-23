@@ -3,7 +3,12 @@ package net.stormdragon_64.food_plus.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -19,10 +24,12 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.minecraftforge.registries.RegistryObject;
 import net.stormdragon_64.food_plus.item.ModItems;
+import net.stormdragon_64.food_plus.util.ModTags;
 
 
-    public class IceCreamTub extends Block {
+public class IceCreamTub extends Block {
     public static final BooleanProperty IS_VANILLA = BooleanProperty.create("is_vanilla");
     public static final BooleanProperty IS_CHOCOLATE = BooleanProperty.create("is_chocolate");
     public static final IntegerProperty FILL = IntegerProperty.create("fill", 0, 4);
@@ -50,7 +57,10 @@ import net.stormdragon_64.food_plus.item.ModItems;
         }
     }
 
-    /* FACING */
+
+
+
+    //facing direction
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
@@ -71,33 +81,41 @@ import net.stormdragon_64.food_plus.item.ModItems;
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING, FILL, IS_CHOCOLATE, IS_VANILLA);
     }
-    // this checks what type of ice cream the player is holding and replaces it with an empty cone.
-    // if the player has chocolate, we give the block the is_chocolate state, same for the rest of the flavors.
-    // we also check if we already have a type of ice cream, because if we didn't then
-    //  it would set all of the ice cream to the same type. not good.
+    // FUNCTIONALITY
+        // allows the player to add ice cream to a tub and give them back an empty cone.
+
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
                                  BlockHitResult pResult) {
         if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
             boolean currently_is_vanilla = pState.getValue(IS_VANILLA);
             boolean currently_is_chocolate = pState.getValue(IS_CHOCOLATE);
-            if (pPlayer.getItemInHand(pHand).equals(ModItems.VANILLA_ICE_CREAM) && currently_is_chocolate == false) {
+            if(currently_is_chocolate && currently_is_vanilla) {
+                pLevel.setBlock(pPos, pState.setValue(IS_VANILLA, false), 3);
+                pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, false), 3);
+            }
+
+            if (pPlayer.getItemInHand(pHand).is(ModTags.Items.VANILLA_ICE_CREAMS) && !currently_is_chocolate) {
+                ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                 int current_fill_level = pState.getValue(FILL);
-                if (current_fill_level < 4) 
-                    pPlayer.getItemInHand(pHand).equals(ModItems.EMPTY_CONE);
+                if (current_fill_level < 4)
+                    pPlayer.getItemInHand(pHand).shrink(1);
                 pLevel.setBlock(pPos, pState.setValue(IS_VANILLA, true), 3);
                     pLevel.setBlock(pPos, pState.setValue(FILL, current_fill_level + 1), 3);
-
-            } else if ((pPlayer.getItemInHand(pHand).equals(ModItems.CHOCOLATE_ICE_CREAM) && currently_is_vanilla) == false) {
+                    pPlayer.addItem(coneIStack);
+            } else if ((pPlayer.getItemInHand(pHand).is(ModTags.Items.CHOCOLATE_ICE_CREAMS)) && !currently_is_vanilla) {
+                ItemStack coneIStack = new ItemStack(ModItems.EMPTY_CONE.get());
                 int current_fill_level = pState.getValue(FILL);
                 if (current_fill_level < 4) {
-                    pPlayer.getItemInHand(pHand).equals(ModItems.EMPTY_CONE);
+                    pPlayer.getItemInHand(pHand).shrink(1);
                     pLevel.setBlock(pPos, pState.setValue(IS_CHOCOLATE, true), 3);
                     pLevel.setBlock(pPos, pState.setValue(FILL, current_fill_level + 1), 3);
+                    pPlayer.addItem(coneIStack);
                 }
 
             }
         }
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pResult);
-    }
-}
+        }
+
+        }
