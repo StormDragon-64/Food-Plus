@@ -1,12 +1,3 @@
 {
-  "item.food_plus.donut": "Donut",
-  "item.food_plus.waffle_sheet": "Waffle Cone Sheet",
-  "item.food_plus.empty_cone": "Empty Ice Cream Cone",
-  "item.food_plus.vanilla_ice_cream": "Vanilla Ice Cream",
-  "item.food_plus.chocolate_ice_cream": "Chocolate Ice Cream", 
-
-  "block.food_plus.ice_cream_tub": "Ice Cream Tub",
-
-
-  "tooltip.food_plus.vanilla_ice_cream": "§7Gives speed for 15 seconds.§r"
+  "item.food_plus.donut": "Donut"
 }

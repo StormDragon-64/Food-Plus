@@ -1,9 +1,0 @@
-{
-	"type":"createaddition:rolling",
-	"input": {
-      	"item": "food_plus:waffle_sheet"
-	},
-	"result": {
-		"item": "food_plus:empty_cone"
-	}
-}
