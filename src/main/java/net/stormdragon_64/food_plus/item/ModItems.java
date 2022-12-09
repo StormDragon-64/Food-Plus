@@ -29,6 +29,11 @@ public class ModItems {
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
             () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.CHEESE)));
 
+    public static final RegistryObject<Item> PIZZA = ITEMS.register("pizza",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.PIZZA)));
+
+    public static final RegistryObject<Item> NETHER_PIZZA = ITEMS.register("nether_pizza",
+            () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD).food(ModFoods.PIZZA)));
 
 public static void register(IEventBus eventBus) {
     ITEMS.register(eventBus);
