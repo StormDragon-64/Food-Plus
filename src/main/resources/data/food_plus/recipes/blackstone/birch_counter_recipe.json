@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:birch_cabinet"
+        },
+        {
+            "item": "minecraft:polished_blackstone"
+        }
+      ],
+      "result": {
+        "item": "food_plus:blackstone_birch_counter"
+      }
+    }

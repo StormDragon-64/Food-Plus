@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:spruce_cabinet"
+        },
+        {
+            "item": "minecraft:polished_deepslate"
+        }
+      ],
+      "result": {
+        "item": "food_plus:deepslate_spruce_counter"
+      }
+    }

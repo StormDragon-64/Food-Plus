@@ -1,0 +1,12 @@
+{
+	"credit": "Made by StormDragon in Blockbench",
+	"parent": "food_plus:block/generic_counter",
+	"textures": {
+		"countertop": "block/polished_blackstone",
+		"back": "food_plus:block/counters/dark_oak_cabinet_back",
+		"front": "food_plus:block/counters/dark_oak_cabinet_front_open",
+		"top": "food_plus:block/counters/dark_oak_cabinet_top",
+		"particle": "food_plus:block/counters/dark_oak_cabinet_sides",
+		"sides": "food_plus:block/counters/dark_oak_cabinet_sides"
+	}
+}

@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:dark_oak_cabinet"
+        },
+        {
+            "item": "quark:polished_tuff"
+        }
+      ],
+      "result": {
+        "item": "food_plus:tuff_dark_oak_counter"
+      }
+    }

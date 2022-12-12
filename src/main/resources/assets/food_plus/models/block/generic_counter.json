@@ -1,0 +1,32 @@
+{
+	"credit": "Made by StormDragon in Blockbench",
+	"parent": "minecraft:block/orientable",
+	"elements": [
+		{
+			"name": "cabinet",
+			"from": [0, 0, 1],
+			"to": [16, 14, 16],
+			"faces": {
+				"north": {"uv": [0, 2, 16, 16], "texture": "#front"},
+				"east": {"uv": [0, 0, 15, 14], "texture": "#sides"},
+				"south": {"uv": [0, 0, 16, 14], "texture": "#back"},
+				"west": {"uv": [0, 0, 15, 14], "texture": "#sides"},
+				"up": {"uv": [0, 0, 16, 15], "texture": "#top"},
+				"down": {"uv": [0, 0, 16, 15], "texture": "#top"}
+			}
+		},
+		{
+			"name": "counter_top",
+			"from": [0, 14, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 16, 16, 14], "texture": "#countertop"},
+				"east": {"uv": [0, 0, 16, 2], "texture": "#countertop"},
+				"south": {"uv": [16, 0, 0, 2], "texture": "#countertop"},
+				"west": {"uv": [16, 16, 0, 14], "texture": "#countertop"},
+				"up": {"uv": [16, 16, 0, 0], "texture": "#countertop"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#countertop"}
+			}
+		}
+	]
+}

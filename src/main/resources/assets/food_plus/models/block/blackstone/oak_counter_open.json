@@ -1,0 +1,40 @@
+{
+	"credit": "Made by StormDragon in Blockbench",
+	"parent": "food_plus:block/generic_counter",
+	"textures": {
+		"countertop": "block/polished_blackstone",
+		"back": "food_plus:block/counters/oak_cabinet_back",
+		"front": "food_plus:block/counters/oak_cabinet_front_open",
+		"top": "food_plus:block/counters/oak_cabinet_top",
+		"particle": "food_plus:block/counters/oak_cabinet_sides",
+		"sides": "food_plus:block/counters/oak_cabinet_sides"
+	},
+	"elements": [
+		{
+			"name": "cabinet",
+			"from": [0, 0, 1],
+			"to": [16, 14, 16],
+			"faces": {
+				"north": {"uv": [0, 2, 16, 16], "texture": "#front"},
+				"east": {"uv": [0, 2, 15, 16], "texture": "#sides"},
+				"south": {"uv": [0, 2, 16, 16], "texture": "#back"},
+				"west": {"uv": [0, 2, 15, 16], "texture": "#sides"},
+				"up": {"uv": [0, 0, 16, 15], "texture": "#missing"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#top"}
+			}
+		},
+		{
+			"name": "counter_top",
+			"from": [0, 14, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 16, 16, 14], "texture": "#countertop"},
+				"east": {"uv": [0, 0, 16, 2], "texture": "#countertop"},
+				"south": {"uv": [16, 0, 0, 2], "texture": "#countertop"},
+				"west": {"uv": [16, 16, 0, 14], "texture": "#countertop"},
+				"up": {"uv": [16, 16, 0, 0], "texture": "#countertop"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#countertop"}
+			}
+		}
+	]
+}

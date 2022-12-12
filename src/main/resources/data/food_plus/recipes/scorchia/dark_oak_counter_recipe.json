@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:dark_oak_cabinet"
+        },
+        {
+            "item": "create:polished_cut_scorchia"
+        }
+      ],
+      "result": {
+        "item": "food_plus:scorchia_dark_oak_counter"
+      }
+    }

@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:crimson_cabinet"
+        },
+        {
+            "item": "minecraft:polished_granite"
+        }
+      ],
+      "result": {
+        "item": "food_plus:granite_crimson_counter"
+      }
+    }

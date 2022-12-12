@@ -173,6 +173,8 @@ repositories {
         implementation(fg.deobf("curse.maven:AppleSkin-248787:3927564"))
         implementation(fg.deobf("curse.maven:Kiwi-303657:3990351"))
         implementation(fg.deobf("curse.maven:CreateCraftsAndAdditons-439890:4094139"))
+        implementation(fg.deobf("curse.maven:FarmersDelight-398521:3999153"))
+        implementation(fg.deobf("curse.maven:FestiveDelight-711672:4111869"))
 
         // Examples using mod jars from ./libs
         // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")

@@ -14,8 +14,10 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.stormdragon_64.food_plus.block.ModBlocks;
 import net.stormdragon_64.food_plus.item.ModItems;
 import org.slf4j.Logger;
+import snownee.kiwi.block.ModBlock;
 
 import java.util.stream.Collectors;
 
@@ -33,6 +35,7 @@ public class FoodPlus {
         eventBus.addListener(this::setup);
 
         ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
         MinecraftForge.EVENT_BUS.register(this);
     }
 

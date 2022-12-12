@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:crimson_cabinet"
+        },
+        {
+            "item": "minecraft:polished_diorite"
+        }
+      ],
+      "result": {
+        "item": "food_plus:diorite_crimson_counter"
+      }
+    }

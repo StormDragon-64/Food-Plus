@@ -58,3 +58,41 @@ Adds more food to the game, requires farmers delight.
     versionRange="[1.18,1.19)"
     ordering="NONE"
     side="BOTH"
+
+#specific to the mod dependancies below
+[[dependencies.food_plus]] #optional
+# the modid of the dependency
+modId="farmersdelight" #mandatory
+# Does this dependency have to exist - if not, ordering below must be specified
+mandatory=true #mandatory
+# The version range of the dependency
+versionRange="[1.18.2-1.2.0,)" #mandatory
+# An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT or SERVER
+side="BOTH"
+
+[[dependencies.food_plus]] #optional
+# the modid of the dependency
+modId="quark" #mandatory
+# Does this dependency have to exist - if not, ordering below must be specified
+mandatory=true #mandatory
+# The version range of the dependency
+versionRange="[3.2-358,)" #mandatory
+# An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT or SERVER
+side="BOTH"
+
+[[dependencies.food_plus]] #optional
+# the modid of the dependency
+modId="create" #mandatory
+# Does this dependency have to exist - if not, ordering below must be specified
+mandatory=true #mandatory
+# The version range of the dependency
+versionRange="[0.5.0.e-195,)" #mandatory
+# An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+ordering="NONE"
+# Side this dependency is applied on - BOTH, CLIENT or SERVER
+side="BOTH"
+

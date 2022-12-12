@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+          "item": "farmersdelight:acacia_cabinet"
+        },
+        {
+            "item": "minecraft:polished_blackstone"
+        }
+      ],
+      "result": {
+        "item": "food_plus:blackstone_acacia_counter"
+      }
+    }
